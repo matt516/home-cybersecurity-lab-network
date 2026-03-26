@@ -57,4 +57,17 @@ This project documents the design and implementation of a home cybersecurity lab
 
 🚀 Status
 
-🔧 In Progress
+## Current Progress
+
+- pfSense installed and running
+- WAN and LAN configured
+- LAN subnet changed to `192.168.10.0/24`
+- DHCP configured on LAN
+- pfBlockerNG installed
+- LAB and ATTACK VLANs created
+- Firewall rules created to isolate ATTACK from private internal networks
+- Troubleshooting documented for DHCP, interface resets, and USB NIC instability
+
+## Current Security Design
+
+The ATTACK network is intentionally restricted so it can reach the internet but cannot access private internal networks. This simulates lateral movement prevention and segmented trust zones in an enterprise environment.
