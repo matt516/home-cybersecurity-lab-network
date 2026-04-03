@@ -1,6 +1,41 @@
-Configured IP address range for LAN devices inside of pfSense
-Existing Control4 controller had an existing IP address that was outside the newly established range
-Updated the controller to fit the new IP range
+## 1. Ethernet appeared slower than expected
+
+### Symptom
+Ethernet performance initially appeared suspicious compared to wireless.
+
+### Finding
+A direct speed test showed approximately 250 Mbps, which matched the actual ISP service plan.
+
+### Resolution
+Confirmed that the perceived issue was not a local bottleneck but normal behavior for the subscribed internet service.
+
+---
+
+## 2. pfSense installer image confusion
+
+### Symptom
+The downloaded Netgate installer was an `.img.gz` file and was difficult to work with in Windows.
+
+### Finding
+The installer first had to be extracted into a `.img` file before it could be correctly flashed to USB.
+
+### Resolution
+Extracted the compressed image and used Rufus to create bootable media.
+
+---
+
+## 3. Mac would not automatically boot into pfSense
+
+### Symptom
+After installation, the Mac attempted to boot macOS instead of pfSense.
+
+### Finding
+The Mac required selecting EFI boot manually.
+
+### Resolution
+Used the boot menu to select the pfSense EFI boot target.
+
+---
 
 ## 4. Connectivity loss after LAN subnet change
 
