@@ -37,4 +37,4 @@ pfSense Community Edition was installed on an older Intel-based Mac as a tempora
 
 ## Notes
 
-The lab initially used a USB Ethernet adapter for LAN or WAN depending on interface testing. This introduced intermittent instability and became a major troubleshooting point during setup.
+The lab initially used a USB Ethernet adapter for LAN or WAN depending on interface testing. This introduced intermittent instability and became a major troubleshooting point during setup. As such the mac was replaced with a mini pc that runs pfsense, it has 4 dedicated ethernet ports.
