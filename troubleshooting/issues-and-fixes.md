@@ -90,3 +90,23 @@ Created a two-rule model:
 2. Allow ATTACK to any remaining destination
 
 This correctly enforced segmentation.
+
+## 8. VLAN DHCP Address Issues
+
+### Symptom
+VLANS are not getting the propper IP addresses assigned.
+
+### Findings
+-Switch port trunking
+-Switch VLAN config
+-DHCP static mapping
+-VLAN assignments
+-MAC address
+-Packet Captures
+-Firewall Rules
+
+### Solutions
+
+
+### Resolution
+
