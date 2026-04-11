@@ -3,7 +3,7 @@
 
 ## Summary
 
-pfSense Community Edition was installed on an older Intel-based Mac as a temporary firewall platform for the lab. The installation required external storage and a USB Ethernet adapter because the hardware did not have a sufficient number of built-in Ethernet interfaces.
+pfSense Community Edition was installed on an older Intel-based Mac as a temporary firewall platform for the lab. The installation required external storage and a USB Ethernet adapter because the hardware did not have a sufficient number of built-in Ethernet interfaces. After getting it set up, it was dropping the connection to the LAN so I had to replace the mac with a mini Vault PC. Now with the Vault in place it has 4 ethernet ports, one is being used for WAN coming from the nest router and one for the LAN travelling to the switch.
 
 ## Installation Process
 
@@ -17,6 +17,8 @@ pfSense Community Edition was installed on an older Intel-based Mac as a tempora
    - LAN: USB Ethernet adapter
 7. Configured LAN IP and DHCP
 8. Logged into the pfSense web interface and completed setup wizard
+9. Flashed installer with rufus for CE pfsense for Vault
+10. pfsense booted onto the Vault 
 
 ## Initial LAN Configuration
 
