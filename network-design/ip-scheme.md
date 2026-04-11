@@ -16,13 +16,19 @@ Araknis Switch
 Client devices / lab devices
 
 Internal networks
-LAN: 192.168.10.0/24
-pfSense LAN IP: 192.168.10.1
+LAN: 192.168.1.0/24
+ADMIN VLAN: 192.168.10.0/24
+Admin Laptop IP: 192.168.10.50
 DHCP range: 192.168.10.100 - 192.168.10.199
-LAB VLAN: 192.168.20.0/24
-pfSense LAB IP: 192.168.20.1
+SERVERS VLAN: 192.168.20.0/24
+Ubuntu-Desktop(Dell): 192.168.20.70
+Ubuntu-Desktop(Mac): 192.168.20.60
+Ubuntu-Server: 192.168.20.50
+DHCP range: 192.168.20.100 - 192.168.20.199
 ATTACK VLAN: 192.168.30.0/24
-pfSense ATTACK IP: 192.168.30.1
+Kali IP: 192.168.30.50
+DHCP range: 192.168.30.100 - 192.168.30.199
+
 
 Design Reasoning:
 192.168.10.0/24 is used for the main trusted LAN
