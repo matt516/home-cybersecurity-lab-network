@@ -9,7 +9,7 @@
 - ATTACK: `192.168.30.0/24`
 
 ## ADMIN Rules
-### The ADMIN VLAN should have complete access to the network with limited devices
+### The ADMIN VLAN should be able to ssh into servers and access web servers and block everything else
 - Allow all traffic from ADMIN subnets
 
 ## SERVERS Rules
