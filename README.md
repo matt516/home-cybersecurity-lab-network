@@ -1,5 +1,5 @@
 # home-cybersecurity-lab-network
-##(STILL IN PROGRESS)
+## (STILL IN PROGRESS)
 
 Hands-on cybersecurity lab using pfsense, linux machines, VLANs, and virtual machines to simulate enterprise network security scenarios.
 
