@@ -11,8 +11,11 @@ Kali Linux is deployed as the primary offensive security platform within the **A
 ### 🧱 Lab Role & Placement
 
 **Network Role:** Attacker / Red Team Simulation
+
 **VLAN:** Attack VLAN (VLAN 30)
+
 **Subnet:** 10.0.30.0/24
+
 **Assigned IP:** 10.0.30.50 (Static / DHCP Reservation)
 
 This system is intentionally isolated from other VLANs and must traverse the firewall to reach target systems, enabling validation of segmentation and access control policies.
