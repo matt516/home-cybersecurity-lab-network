@@ -1,48 +1,94 @@
-# home-cybersecurity-lab-network
-## (STILL IN PROGRESS)
+# 🛡️ Cybersecurity Home Lab – Network Segmentation, Detection & Attack Simulation
 
-Hands-on cybersecurity lab using pfsense, linux machines, VLANs, and virtual machines to simulate enterprise network security scenarios.
+## 📌 Overview
 
-🛡️ Home Cybersecurity Lab
+This project is a hands-on cybersecurity lab designed to simulate a segmented enterprise network. It demonstrates both offensive and defensive security concepts, including network segmentation, firewall configuration, reconnaissance, and centralized logging with a SIEM.
 
-📌 Overview
-
-This project documents the design and implementation of a home cybersecurity lab built to simulate enterprise network environments. The lab uses pfSense as a firewall, VLAN segmentation, and virtual machines to practice real-world security scenarios.
+The lab was built to reinforce real-world skills aligned with **Security+ (SY0-701)** and entry-level cybersecurity roles such as SOC Analyst.
 
 ---
 
-🎯 Objectives
+## 🧱 Lab Architecture
 
-* Build a segmented network using VLANs
-* Configure firewall rules and access controls
-* Simulate attacks using Kali Linux
-* Analyze traffic and logs
+The environment is segmented using VLANs and controlled by a central firewall.
 
----
+### Network Design
 
-🧱 Network Architecture
+* **Management VLAN (10.0.10.0/24)**
 
-<img width="624" height="441" alt="Cyber-Security-Home-Lab (1)" src="https://github.com/user-attachments/assets/72bd39d0-05e8-41c5-ac58-0a85523a066b" />
+  * Administrative systems
+* **Server VLAN (10.0.20.0/24)**
 
----
+  * Internal systems and SIEM
+* **Attack VLAN (10.0.30.0/24)**
 
-🛠️ Technologies Used
+  * Kali Linux attacker machine
 
-* pfSense (Firewall)
-* Kali Linux
-* Ubuntu Server
-* Ubuntu Desktop
-* Raspberry Pi
-* Managed Switch
+Traffic between VLANs is controlled using **pfSense firewall rules** following a least-privilege model.
 
 ---
 
-🔐 Key Concepts Practiced
+## 🔧 Technologies & Tools
 
-* Network segmentation
-* Firewall rule configuration
-* Least privilege access
-* Traffic analysis
+* **Firewall:** pfSense
+* **SIEM:** Wazuh
+* **Offensive Tools:** Kali Linux (Nmap, Netcat)
+* **Systems:**
+
+  * Ubuntu Server (Raspberry Pi)
+  * Ubuntu Desktop (Mac hardware)
+  * SIEM Server (Dell – Ubuntu Desktop)
+
+---
+
+## 🔍 Key Features
+
+### 🔐 Network Segmentation
+
+* VLAN-based isolation of systems
+* Controlled inter-VLAN communication
+* Reduced attack surface and lateral movement prevention
+
+---
+
+### 🛡️ Firewall Configuration
+
+* Rule-based access control (allow specific ports only)
+* Implicit deny for all other traffic
+* Validation using real attack simulation
+
+---
+
+### 🔎 Reconnaissance & Enumeration
+
+* Host discovery and port scanning using Nmap
+* Manual service testing with Netcat
+* Interpretation of scan results (open, closed, filtered)
+
+---
+
+### 📊 SIEM & Detection (Wazuh)
+
+* Centralized log collection
+* Detection of simulated attack activity
+* Visibility into network and system events
+
+---
+
+### 🧪 Attack Simulation
+
+* Kali Linux used to simulate attacker behavior
+* Scanning and probing internal systems
+* Validation of firewall and detection mechanisms
+
+---
+
+### 🛠️ Troubleshooting & Debugging
+
+* Diagnosed DHCP, DNS, and routing issues
+* Resolved VLAN misconfigurations
+* Debugged firewall rule behavior
+* Identified hardware-related networking issues
 
 ---
 
@@ -57,19 +103,39 @@ This project documents the design and implementation of a home cybersecurity lab
 
 ---
 
-🚀 Status
+## 🧠 Skills Demonstrated
 
-## Current Progress
+* Network segmentation (VLANs)
+* Firewall rule design and validation
+* Offensive security (reconnaissance & scanning)
+* Defensive security (logging & detection)
+* SIEM deployment and usage
+* Linux system administration
+* Network troubleshooting and debugging
 
-- pfSense installed and running
-- WAN and LAN configured
-- LAN subnet changed to `192.168.10.0/24`
-- DHCP configured on LAN
-- pfBlockerNG installed
-- LAB and ATTACK VLANs created
-- Firewall rules created to isolate ATTACK from private internal networks
-- Troubleshooting documented for DHCP, interface resets, and USB NIC instability
+---
 
-## Current Security Design
+## 🚀 Future Improvements
 
-The ATTACK network is intentionally restricted so it can reach the internet but cannot access private internal networks. This simulates lateral movement prevention and segmented trust zones in an enterprise environment.
+* Full Wazuh agent deployment across all systems
+* Advanced attack simulations (brute force, lateral movement)
+* Dashboard and alert tuning for SIEM
+* Additional services for deeper enumeration testing
+
+---
+
+## ⚠️ Disclaimer
+
+This project was built in a controlled lab environment for educational purposes only.
+All IP addresses, systems, and configurations are fictional and do not represent a production network.
+
+---
+
+## 📬 Contact
+
+Feel free to reach out or connect:
+
+* GitHub: https://github.com/matt516
+* LinkedIn: www.linkedin.com/in/matt-hartley-170521354
+
+---
