@@ -18,14 +18,14 @@ The lab uses pfSense Community Edition as the primary firewall and router, with 
 
 ### Core components
 - Fiber internet connection
-- Google Nest router upstream of pfSense
-- pfSense CE installed on a Protectli Vault
+- Google Nest router
+- Protectli Vault
 - Araknis switch
-- Laptop for administration and testing
-- Raspberry Pi running Ubuntu Server
-- Mac Desktop running Kali Linux
-- Mac Desktop running Ubuntu Desktop
-- Dell Laptop running Ubuntu Desktop
+- HP Laptop 
+- Raspberry Pi 
+- Mac Desktop 
+- Mac Desktop 
+- Dell Laptop 
 
 ### Current network roles
 - WAN: receives DHCP from upstream Nest router
