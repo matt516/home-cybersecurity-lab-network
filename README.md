@@ -22,7 +22,7 @@ This project documents the design and implementation of a home cybersecurity lab
 
 🧱 Network Architecture
 
-*(Insert diagram in /network-design/diagram.png)*
+<img width="624" height="441" alt="Cyber-Security-Home-Lab (1)" src="https://github.com/user-attachments/assets/72bd39d0-05e8-41c5-ac58-0a85523a066b" />
 
 ---
 
