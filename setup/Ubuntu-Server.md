@@ -16,7 +16,7 @@ The primary purpose of this node is to simulate a production-style server enviro
 
 **Subnet:** 10.0.20.0/24
 
-**Assigned IP:** 10.0.20.20 (Static / DHCP Reservation)
+**Assigned IP:** 10.0.20.50 (Static / DHCP Reservation)
 
 This system resides in an isolated server network and is protected by firewall rules that restrict access to only required services.
 
