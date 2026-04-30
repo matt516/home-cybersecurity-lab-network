@@ -1,18 +1,14 @@
 ## VLAN 10 ADMIN
-- Araknis switch port 9
-- Static mapping Laptop to 192.168.10.50
+- Managed Switch port 9
+- Static mapping Laptop to 10.0.10.50
 - My Laptop 
 
 ## VLAN 20 SERVERS
-- Araknis switch port 11
-- Static mapping Server to 192.168.20.50
-- Static mapping Desktop to 192.168.20.60
-- Static mapping Desktop to 192.168.20.70
-- Raspberry Pi Ubuntu Server
-- Mac Ubuntu Desktop
-- Dell Laptop Ubuntu Desktop
+- Managed Switch port 11
+- Static mapping Server to 10.0.20.50
+- Static mapping Desktop to 10.0.20.60
+- Static mapping Desktop to 10.0.20.70
 
 ## VLAN 30 ATTACK
-- Araknis switch port 13
-- Static mapping Kali to 192.168.30.50
-- Mac Kali Linux
+- Managed Switch port 13
+- Static mapping Kali to 10.0.30.50
