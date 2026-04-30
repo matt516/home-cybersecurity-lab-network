@@ -1,5 +1,8 @@
 # IP Scheme and Network Design
 
+⚠️ Note: This is a simulated lab environment built for cybersecurity training.
+All IP addresses, hostnames, and configurations are fictional and do not reflect a real production network.
+
 ## Current Topology
 
 ```text
