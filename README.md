@@ -38,6 +38,8 @@ Traffic between VLANs is controlled using **pfSense firewall rules** following a
   * Ubuntu Server (Raspberry Pi)
   * Ubuntu Desktop (Mac hardware)
   * SIEM Server (Dell – Ubuntu Desktop)
+  * Admin Workstation
+  * Kali Linux (Mac hardware)
 
 ---
 
