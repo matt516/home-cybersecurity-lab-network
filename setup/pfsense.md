@@ -3,7 +3,7 @@
 
 ## Summary
 
-pfSense Community Edition was installed on an older Intel-based Mac as a temporary firewall platform for the lab. After getting it set up, it was dropping the connection to the LAN due to the use of a usb ethernet adapter, so I had to replace the mac with a mini Vault PC. Now with the Vault in place it has 4 ethernet ports, one is being used for WAN coming from the router and one for the LAN travelling to the switch.
+pfSense Community Edition was installed on an older Intel-based Mac as a temporary firewall platform for the lab. After getting it set up, it was dropping the connection to the LAN due to the use of a usb ethernet adapter, so I had to replace the mac with a 4-port firewall appliance. Now with the Vault in place it has 4 ethernet ports, one is being used for WAN coming from the router and one for the LAN travelling to the switch.
 
 ## Installation Process
 
@@ -20,8 +20,8 @@ pfSense Community Edition was installed on an older Intel-based Mac as a tempora
 8. Logged into the pfSense web interface and completed setup wizard
    
 ### Vault Setup
-- Flashed installer with rufus for CE pfsense for Vault
-- pfsense booted onto the Vault
+- Flashed installer with rufus for CE pfsense for firewall appliance
+- pfsense booted onto the firewall appliance
 - Followed same setup steps
 
 ## Initial LAN Configuration
