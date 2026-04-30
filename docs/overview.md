@@ -1,5 +1,5 @@
 # Project Overview
-## ⚠️STILL IN PROGRESS⚠️
+## ⚠️STILL IN PROGRESS
 
 ## Home Cybersecurity Lab
 
