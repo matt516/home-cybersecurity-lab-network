@@ -1,5 +1,5 @@
 # 🛡️ Cybersecurity Home Lab – Network Segmentation, Detection & Attack Simulation
-## STILL IN PROGRESS
+## ⚠️STILL IN PROGRESS
 
 ## 📌 Overview
 
