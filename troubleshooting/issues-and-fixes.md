@@ -1,112 +1,231 @@
-## 1. Ethernet appeared slower than expected
+## 🛠️ Troubleshooting & Debugging – Lab Environment
 
-### Symptom
-Ethernet performance initially appeared suspicious compared to wireless.
+### 📌 Overview
 
-### Finding
-A direct speed test showed approximately 250 Mbps, which matched the actual ISP service plan.
+This section documents real-world issues encountered while building and operating a segmented cybersecurity lab environment. It highlights the troubleshooting process, root cause analysis, and resolutions.
 
-### Resolution
-Confirmed that the perceived issue was not a local bottleneck but normal behavior for the subscribed internet service.
+These scenarios demonstrate practical problem-solving skills across networking, system configuration, and security validation.
 
 ---
 
-## 2. pfSense installer image confusion
+### 🌐 Issue 1: No Internet Connectivity (Kali Linux)
 
-### Symptom
-The downloaded Netgate installer was an `.img.gz` file and was difficult to work with in Windows.
+**Symptoms:**
 
-### Finding
-The installer first had to be extracted into a `.img` file before it could be correctly flashed to USB.
+* Unable to reach external websites
+* `ping 8.8.8.8` failed or showed packet loss
+* `ping google.com` failed with DNS resolution error
 
-### Resolution
-Extracted the compressed image and used Rufus to create bootable media.
+**Diagnosis Steps:**
 
----
+* Verified interface configuration:
 
-## 3. Mac would not automatically boot into pfSense
+  ```bash
+  ip a
+  ip route
+  ```
+* Tested connectivity by IP vs domain
+* Checked DHCP lease status
+* Reviewed DNS configuration
 
-### Symptom
-After installation, the Mac attempted to boot macOS instead of pfSense.
+**Root Cause:**
 
-### Finding
-The Mac required selecting EFI boot manually.
+* DNS misconfiguration and/or missing resolver settings
 
-### Resolution
-Used the boot menu to select the pfSense EFI boot target.
+**Resolution:**
 
----
+* Updated DNS settings
+* Verified connectivity:
 
-## 4. Connectivity loss after LAN subnet change
+  ```bash
+  ping 8.8.8.8
+  ping google.com
+  ```
 
-### Symptom
-After changing the LAN from `192.168.1.0/24` to `192.168.10.0/24`, the admin laptop lost connectivity.
-
-### Finding
-The laptop still had an address from the previous subnet and could no longer communicate with the firewall.
-
-### Resolution
-Reconfigured the LAN interface in pfSense and renewed addressing on the client side.
-
----
-
-## 5. DHCP failure on LAN
-
-### Symptom
-`ipconfig /renew` would hang and the laptop could not get an address.
-
-### Finding
-The `dhcpd` service was not running properly after changes and interface resets.
-
-### Resolution
-Reconfigured the LAN interface and restarted/rebooted pfSense to restore DHCP service.
+**Lesson Learned:**
+A system can have network connectivity but still fail due to DNS issues.
 
 ---
 
-## 6. USB Ethernet instability
+### 📡 Issue 2: DHCP Failure (No IP Assignment)
 
-### Symptom
-Intermittent network drops, DHCP failures, and web configurator instability occurred during lab setup.
+**Symptoms:**
 
-### Finding
-The USB Ethernet adapter introduced instability when used for critical interfaces.
+* System not receiving IP address
+* Error: “No response from port 68 (DHCP Discover)”
+* Interface showed no valid IPv4 address
 
-### Resolution
-Identified USB NIC instability as the likely root cause and noted that the long-term fix is to move pfSense to hardware with native or PCIe Ethernet interfaces.
+**Diagnosis Steps:**
+
+* Checked DHCP server configuration (pfSense)
+* Verified VLAN assignment on switch
+* Compared working vs non-working systems
+* Used packet capture to observe DHCP traffic
+
+**Root Cause:**
+
+* Misconfigured VLAN or DHCP scope mismatch
+
+**Resolution:**
+
+* Corrected VLAN tagging
+* Ensured DHCP server was enabled for correct subnet
+* Renewed DHCP lease
+
+**Lesson Learned:**
+DHCP issues are often related to VLAN misconfiguration rather than the client itself.
 
 ---
 
-## 7. Firewall rule design confusion
+### 🔌 Issue 3: Unstable Network via USB Ethernet Adapter
 
-### Symptom
-Initial ATTACK rules only targeted the WAN address or were too broad.
+**Symptoms:**
 
-### Finding
-This either failed to allow internet correctly or unintentionally allowed internal network access.
+* Intermittent connectivity
+* Packet loss
+* Inconsistent interface naming (e.g., `eth0`, `enx...`)
 
-### Resolution
-Created a two-rule model:
-1. Block ATTACK to private networks
-2. Allow ATTACK to any remaining destination
+**Diagnosis Steps:**
 
-This correctly enforced segmentation.
+* Tested connectivity across different devices
+* Checked interface status:
 
-## 8. VLAN DHCP Address Issues
+  ```bash
+  ip a
+  ```
+* Compared behavior with direct Ethernet connection
 
-### Symptom
-VLANS are not getting the propper IP addresses assigned.
+**Root Cause:**
 
-### Findings
--Switch port trunking
--Switch VLAN config
--DHCP static mapping
--VLAN assignments
--MAC address
--Packet Captures
--Firewall Rules
+* USB Ethernet adapter driver instability and hardware limitations
 
-### Solutions
+**Resolution:**
 
+* Replaced or stabilized adapter usage
+* Adjusted network configuration as needed
 
-### Resolution
+**Lesson Learned:**
+Hardware reliability can significantly impact network performance and troubleshooting accuracy.
+
+---
+
+### 🔍 Issue 4: Nmap “Host Seems Down”
+
+**Symptoms:**
+
+* Nmap reports: “Host seems down”
+* Expected systems not appearing in scan results
+
+**Diagnosis Steps:**
+
+* Verified target system is powered on
+* Tested direct connectivity using `ping`
+* Ran scans with different options:
+
+  ```bash
+  nmap -sn <target-subnet>
+  nmap -Pn <target-ip>
+  ```
+
+**Root Cause:**
+
+* ICMP blocked or filtered by firewall
+
+**Resolution:**
+
+* Used `-Pn` flag to skip host discovery
+* Confirmed firewall behavior aligns with security rules
+
+**Lesson Learned:**
+“Host seems down” often indicates filtering, not absence of a system.
+
+---
+
+### 🔐 Issue 5: Expected Open Ports Not Showing
+
+**Symptoms:**
+
+* Ports configured as allowed in firewall not appearing open in scans
+
+**Diagnosis Steps:**
+
+* Verified firewall rule order and placement
+* Confirmed correct source/destination VLAN
+* Tested from correct network perspective (Attack VLAN)
+* Ran targeted scans:
+
+  ```bash
+  nmap -sS -p 80,443 <target-ip>
+  ```
+
+**Root Cause:**
+
+* Incorrect firewall rule order or source network mismatch
+
+**Resolution:**
+
+* Adjusted rule placement (above block rules)
+* Ensured correct source/destination configuration
+* Re-tested with Nmap
+
+**Lesson Learned:**
+Firewall rules are order-dependent and must match the correct traffic direction.
+
+---
+
+### 🧠 Issue 6: pfSense Connectivity / IP Conflict
+
+**Symptoms:**
+
+* Network instability after introducing pfSense
+* Devices unable to access internet
+* DHCP inconsistencies
+
+**Diagnosis Steps:**
+
+* Checked LAN IP configuration on pfSense
+* Verified presence of multiple DHCP servers
+* Reviewed upstream router configuration
+
+**Root Cause:**
+
+* IP conflict and overlapping DHCP services between router and pfSense
+
+**Resolution:**
+
+* Disabled DHCP on upstream router OR adjusted network ranges
+* Assigned unique LAN subnet to pfSense
+* Renewed client leases
+
+**Lesson Learned:**
+Only one DHCP server should control a subnet to avoid conflicts.
+
+---
+
+### 🧠 Key Skills Demonstrated
+
+* Network troubleshooting (DHCP, DNS, routing)
+* VLAN configuration and validation
+* Firewall rule debugging and analysis
+* Use of diagnostic tools (`ping`, `ip`, `nmap`, `nc`)
+* Root cause analysis and systematic problem solving
+* Understanding of real-world infrastructure issues
+
+---
+
+### 🚀 Continuous Improvement Approach
+
+* Compare working vs non-working systems
+* Test from multiple network perspectives (different VLANs)
+* Validate assumptions using multiple tools
+* Document issues and resolutions for future reference
+
+---
+
+### ⚠️ Disclaimer
+
+All issues and resolutions occurred within a controlled lab environment designed for cybersecurity training.
+Configurations and IP addressing are fictional and do not represent a production network.
+
+---
 
