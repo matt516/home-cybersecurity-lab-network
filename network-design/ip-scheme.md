@@ -28,7 +28,7 @@ Server VLAN (VLAN 20)
 10.0.20.0/24
 - Application Server: 10.0.20.70
 - SIEM Server (Wazuh): 10.0.20.60
-- Test Server: 192.168.20.50
+- Test Server: 10.0.20.50
 - DHCP Range: 10.0.20.100 - 10.0.20.199
 
 Attack VLAN (VLAN 30)
