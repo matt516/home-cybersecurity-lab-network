@@ -4,7 +4,7 @@
 
 This project documents the design and implementation of a home cybersecurity lab built to simulate a segmented enterprise-style network.
 
-The lab uses pfSense Community Edition as the primary firewall and router, with multiple internal networks created for different trust levels. The environment is designed to support hands-on practice for networking, firewall administration, segmentation, and cybersecurity concepts relevant to Security+ and entry-level blue team roles.
+The lab uses pfSense Community Edition as the primary firewall and router, with multiple internal networks created for different trust levels. The environment is designed to support hands-on practice for networking, firewall administration, segmentation, and cybersecurity concepts relevant to Security+ and entry-level roles.
 
 ## Goals
 
@@ -19,15 +19,20 @@ The lab uses pfSense Community Edition as the primary firewall and router, with 
 ### Core components
 - Fiber internet connection
 - Google Nest router upstream of pfSense
-- pfSense CE installed on an older Intel Mac
+- pfSense CE installed on a Protectli Vault
 - Araknis switch
 - Laptop for administration and testing
+- Raspberry Pi running Ubuntu Server
+- Mac Desktop running Kali Linux
+- Mac Desktop running Ubuntu Desktop
+- Dell Laptop running Ubuntu Desktop
 
 ### Current network roles
 - WAN: receives DHCP from upstream Nest router
 - LAN: primary internal network
-- LAB VLAN: trusted lab network
+- ADMIN VLAN: trusted admin network
 - ATTACK VLAN: isolated attacker/test network
+- SERVERS VLAN: servers and "target" network
 
 ## What has been completed so far
 
@@ -36,11 +41,13 @@ The lab uses pfSense Community Edition as the primary firewall and router, with 
 - Changed LAN subnet to a clean internal lab range
 - Enabled DHCP for LAN
 - Installed pfBlockerNG
-- Created LAB and ATTACK VLANs
-- Added firewall rules to allow ATTACK internet access while blocking access to private internal networks
-- Began troubleshooting hardware instability caused by USB Ethernet adapters
+- Created VLANs
+- Created firewall rules to prevent lateral movement
+- Began running nmap and nc tests
+- Started wazuh setup and connected kali agent
+  
 
-## Skills demonstrated so far
+## Skills learned so far
 
 - Network interface assignment
 - DHCP setup and troubleshooting
@@ -49,3 +56,5 @@ The lab uses pfSense Community Edition as the primary firewall and router, with 
 - Firewall rule design
 - Rule order evaluation
 - Troubleshooting connectivity and service failures
+- Wazuh agent implementation
+- Early nmap reconnaissance
