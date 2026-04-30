@@ -18,9 +18,9 @@ The lab uses pfSense Community Edition as the primary firewall and router, with 
 
 ### Core components
 - Fiber internet connection
-- Google Nest router
-- Protectli Vault
-- Araknis switch
+- Google Router
+- 4-port firewall appliance
+- Managed switch
 - HP Laptop 
 - Raspberry Pi 
 - Mac Desktop 
