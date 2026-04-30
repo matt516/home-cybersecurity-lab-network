@@ -29,11 +29,11 @@ This project documents the design and implementation of a home cybersecurity lab
 🛠️ Technologies Used
 
 * pfSense (Firewall)
-* VirtualBox / VMware
 * Kali Linux
 * Ubuntu Server
-* Windows VM
+* Ubuntu Desktop
 * Raspberry Pi
+* Managed Switch
 
 ---
 
@@ -51,7 +51,7 @@ This project documents the design and implementation of a home cybersecurity lab
 * `/docs` → Overview and planning
 * `/network-design` → Diagrams and IP schemes
 * `/setup` → Installation steps
-* `/security` → Firewall rules and segmentation
+* `/security` → Firewall rules and hardening
 * `/testing` → Validation and results
 * `/troubleshooting` → Issues and fixes
 
