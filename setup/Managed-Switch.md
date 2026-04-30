@@ -2,7 +2,6 @@
 
 ## Port Config
 - Port 1 - Uplink from pfsense LAN
-- Port 2 - ea3 control4 controller
 - Port 9(VLAN10) - Admin Workstation
 - Port 10(VLAN20) - SIEM Server (Wazuh)
 - Port 11(VLAN20) - Test Server
