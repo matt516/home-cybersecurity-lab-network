@@ -71,7 +71,7 @@ Kali Linux is used to simulate attacker behavior within the lab.
 * Port scanning and service enumeration:
 
   ```bash
-  nmap -sS -p- 10.0.20.10
+  nmap -sS -p- 10.0.20.50
   ```
 
 * Validation of expected open ports (e.g., 53, 80, 443)
