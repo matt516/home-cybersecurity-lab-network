@@ -3,10 +3,10 @@
 ## Networks
 
 - WAN
-- LAN: `192.168.1.0/24`
-- ADMIN: `192.168.10.0/24`
-- SERVERS: `192.168.20.0/24`
-- ATTACK: `192.168.30.0/24`
+- LAN: `10.0.1.0/24`
+- ADMIN: `10.0.10.0/24`
+- SERVERS: `10.0.20.0/24`
+- ATTACK: `10.0.30.0/24`
 
 ## ADMIN Rules
 ### The ADMIN VLAN should be able to ssh into servers and access web servers and block everything else
